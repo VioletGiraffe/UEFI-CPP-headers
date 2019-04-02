@@ -4,6 +4,9 @@
 #include "UEFI_text_input_protocol.h"
 #include "EFI_boot_services.h"
 #include "EFI_scan_codes.h"
+#include "EFI_graphics_output_protcol.h"
+
+#include "utilities/utilities.hpp"
 
 #define EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL_GUID {0x387477c2,0x69c7,0x11d2,{0x8e,0x39,0x00,0xa0,0xc9,0x69,0x72,0x3b}}
 
