@@ -2,12 +2,16 @@
 
 #include <stdint.h>
 
+#ifndef __cplusplus
+#error This is a C++ file, but it's being compiled as plain C!
+#endif
+
 #if defined _M_AMD64 
-typedef int64_t INTN; // Signed value of native width. (4 bytes on supported 32-bit processor instructions, 8 bytes on supported 64-bit processor instructions, 16 bytes on supported 128-bit processor instructions)
-typedef uint64_t UINTN; // Unsigned value of native width. (4 bytes on supported 32-bit processor instructions, 8 bytes on supported 64-bit processor instructions, 16 bytes on supported 128-bit processor instructions)
+using INTN = int64_t; // Signed value of native width. (4 bytes on supported 32-bit processor instructions, 8 bytes on supported 64-bit processor instructions, 16 bytes on supported 128-bit processor instructions)
+using UINTN = uint64_t; // Unsigned value of native width. (4 bytes on supported 32-bit processor instructions, 8 bytes on supported 64-bit processor instructions, 16 bytes on supported 128-bit processor instructions)
 #elif defined _M_IX86
-typedef int32_t INTN; // Signed value of native width. (4 bytes on supported 32-bit processor instructions, 8 bytes on supported 64-bit processor instructions, 16 bytes on supported 128-bit processor instructions)
-typedef uint32_t UINTN; // Unsigned value of native width. (4 bytes on supported 32-bit processor instructions, 8 bytes on supported 64-bit processor instructions, 16 bytes on supported 128-bit processor instructions)
+using INTN = int32_t; // Signed value of native width. (4 bytes on supported 32-bit processor instructions, 8 bytes on supported 64-bit processor instructions, 16 bytes on supported 128-bit processor instructions)
+using UINTN = uint32_t; // Unsigned value of native width. (4 bytes on supported 32-bit processor instructions, 8 bytes on supported 64-bit processor instructions, 16 bytes on supported 128-bit processor instructions)
 #else
 #error Unknown platform, add missing typdefs to support it.
 #endif
@@ -23,7 +27,4 @@ using INT64 = int64_t;
 
 using VOID = void;
 
-using CHAR16 = uint16_t;
-
-typedef uint8_t ;
-typedef uint16_t CHAR16;
+using CHAR16 = char16_t;
